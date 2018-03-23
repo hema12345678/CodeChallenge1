@@ -1,4 +1,4 @@
-package com.vic.demo.api;
+package com.vic.randomgen.api;
 
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vic.demo.util.NumberRange;
-import com.vic.demo.util.RandomNumber;
+import com.vic.randomgen.domain.NumberRange;
+import com.vic.randomgen.domain.RandomNumber;
 
 @RestController
 @RequestMapping("/api/v1")

@@ -1,4 +1,4 @@
-package com.vic.demo.util;
+package com.vic.randomgen.domain;
 
 public class NumberRange {
 	private long minval;

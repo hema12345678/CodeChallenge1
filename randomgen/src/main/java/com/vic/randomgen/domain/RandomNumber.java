@@ -1,4 +1,4 @@
-package com.vic.demo.util;
+package com.vic.randomgen.domain;
 
 public class RandomNumber {
 	private long retval;
