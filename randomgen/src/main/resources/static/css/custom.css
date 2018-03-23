@@ -7,7 +7,12 @@
 .error-msg {
 	color:red;
 }
-.random-result-div {
+.result-display {
 	padding:20px 10px 20px 50px;
-	font-size: 15px;
+	font-size: 30
 }
+
+.display-hidden {
+	display:none;
+}
+

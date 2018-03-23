@@ -4,8 +4,13 @@ $(document).ready(function() {
 	
 	// GET REQUEST
 	$("#generateRandomNo").click(function(event){
-		event.preventDefault();		
-		
+		event.preventDefault();	
+		getGeneratedNumber();		
+	});	
+	
+	function getGeneratedNumber() {
+		$("#errorMessage").addClass("display-hidden");
+		$("#errorMessage").html("");
 		//GET INPUT OBJECT FORM DATA
 		var minvalue = $("#minval").val();
 		var maxvalue = $("#maxval").val();
@@ -14,7 +19,7 @@ $(document).ready(function() {
 		
 		// Validation STEP 1
 		if(minvalue ==="" || maxvalue ==="") {
-			$("#errorMessage").removeClass("hidden");
+			$("#errorMessage").removeClass("display-hidden");
 			$("#errorMessage").html("Range Values cannot be empty");
 			return false;
 		}
@@ -25,7 +30,7 @@ $(document).ready(function() {
 		if(!(rangeMin === 0 && rangeMax === 20)) {			
 			// Validation STEP 3
 			if(rangeMin > rangeMax){
-				$("#errorMessage").removeClass("hidden");
+				$("#errorMessage").removeClass("display-hidden");
 				$("#errorMessage").html("Minimum Value cannot be greater then Maximum Value");
 				return false;
 			}			
@@ -37,7 +42,7 @@ $(document).ready(function() {
 			methodType = "POST";
 		}
 		
-		// DO GET
+		// DO GET or POST
 		$.ajax({
 			type : methodType,
 			contentType : "application/json",
@@ -49,26 +54,27 @@ $(document).ready(function() {
 					$('div.random-OutputDiv').text("The Generated Random Number : " + result.retval);
 					console.log("Success: ", result);
 				} else{
-					$("#errorMessage").removeClass("hidden");
-					$("#errorMessage").html("ERROR : " + e.responseJSON.message);			
+					$("#errorMessage").removeClass("display-hidden");
+					$("#errorMessage").html("ERROR : " + e.responseJSON.message);		
 					console.log("Fail: ", result);
 				}
 			},
 			error : function(e) {
-				$("#errorMessage").removeClass("hidden");
+				$("#errorMessage").removeClass("display-hidden");
 				$("#errorMessage").html("ERROR : " + e.responseJSON.message);
 				console.log("ERROR: ", e);
 			}
 		});
-	});	
+	}
 
 	
 	$("#clearBtn").click(function(event){
 		event.preventDefault();
 		$("#minval").val("0");
 		$("#maxval").val("20");
-		$("#errorMessage").addClass("hidden");
+		$("#errorMessage").addClass("display-hidden");
 		$("#errorMessage").html("");
+		getGeneratedNumber();
 		
 	});
 	
