@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	
-	var url = "/api/v1/generate_number";
+	var url = "api/v1/generate_number";
 	
 	// GET REQUEST
 	$("#generateRandomNo").click(function(event){
@@ -75,15 +75,7 @@ $(document).ready(function() {
 	  
 	// VALIDATE INPUT TO ALLOW ONLY NUMERIC
 	$('input.validate-input').bind('keypress', function (e) {
-		 //return (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57) && e.which != 46) ? false : true;
 		return ((e.which < 48 || e.which > 57)) ? false : true;
-		/*var minval = $("#minval").val();
- 		var maxval = $("#maxval").val();
- 		if((minval ==="" || $.isNumeric(minval)) && (maxval ==="" || $.isNumeric(maxval))) {
- 			$("#minval").val("0");
- 			$("#maxval").val("20");
- 			return false;
- 		}*/
     });
 	
  });

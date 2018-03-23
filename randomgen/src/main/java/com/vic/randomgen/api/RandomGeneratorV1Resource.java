@@ -3,7 +3,6 @@ package com.vic.randomgen.api;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
